@@ -25,8 +25,13 @@ func CreateMovie(c *gin.Context) {
 	c.JSON(http.StatusOK, newMovie)
 }
 
+func GetMovies(c *gin.Context) {
+    c.JSON(http.StatusOK, movies)
+}
+
 func main() {
 	r := gin.Default()
 	r.POST("/movie", CreateMovie)
+	r.GET("/movies", GetMovies)
 	r.Run(":8080")
 }
